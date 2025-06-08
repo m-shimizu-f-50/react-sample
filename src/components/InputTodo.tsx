@@ -4,10 +4,11 @@ type InputTodoProps = {
 	todoText: string;
 	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	onClick: () => void;
+	disabled: boolean;
 };
 
 export const InputTodo: React.FC<InputTodoProps> = (props) => {
-	const { todoText, onChange, onClick } = props;
+	const { todoText, onChange, onClick, disabled } = props;
 	return (
 		<div className='input-area'>
 			<input
@@ -15,8 +16,11 @@ export const InputTodo: React.FC<InputTodoProps> = (props) => {
 				placeholder='TODOを入力'
 				value={todoText}
 				onChange={onChange}
+				disabled={disabled}
 			/>
-			<button onClick={onClick}>追加</button>
+			<button onClick={onClick} disabled={disabled}>
+				追加
+			</button>
 		</div>
 	);
 };
