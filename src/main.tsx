@@ -1,19 +1,32 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
-import { Todo } from './Todo';
-import { Home } from './Home';
+import { RenderRouter } from './router/RenderRouter';
+import { routes } from './router/Routes';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement!);
 root.render(
 	<StrictMode>
 		<BrowserRouter>
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/todo' element={<Todo />} />
-			</Routes>
+			<nav>
+				<ul>
+					<li>
+						<Link to='/'>Home</Link>
+					</li>
+					<li>
+						<Link to='/todo'>Todo</Link>
+					</li>
+					<li>
+						<Link to='/dashboard'>Dashboard</Link>
+					</li>
+					<li>
+						<Link to='/dashboard/profile'>Profile</Link>
+					</li>
+				</ul>
+			</nav>
+			<RenderRouter routes={routes} />
 		</BrowserRouter>
 	</StrictMode>
 );
