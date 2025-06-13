@@ -59,8 +59,21 @@ root.render(
 							URLパラメーターガイド
 						</Link>
 					</li>
+					<li>
+						<Link
+							to='/atomic-design'
+							style={{
+								textDecoration: 'none',
+								color: '#6f42c1',
+								fontWeight: 'bold',
+							}}
+						>
+							Atomic Design
+						</Link>
+					</li>
 				</ul>
 			</nav>
+
 			<RenderRouter routes={routes} />
 		</BrowserRouter>
 	</StrictMode>

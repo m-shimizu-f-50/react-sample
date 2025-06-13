@@ -5,6 +5,7 @@ import { Profile } from '../pages/Profile';
 import { UserProfile } from '../pages/UserProfile';
 import { PostDetail } from '../pages/PostDetail';
 import { ParamsDemo } from '../pages/ParamsDemo';
+import { AtomicDesign } from '../pages/AtomicDesign';
 import Todo from '../Todo';
 import { Page404 } from '../pages/Page404';
 
@@ -41,6 +42,11 @@ export const routes: RouteObject[] = [
 	{
 		path: '/params-guide',
 		element: <ParamsDemo />,
+	},
+	// Atomic Designのページ
+	{
+		path: '/atomic-design',
+		element: <AtomicDesign />,
 	},
 	// 404 Not Found
 	{
