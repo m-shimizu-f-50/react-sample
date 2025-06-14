@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { Card } from '../../atoms/button/card/Card';
 import { UserIconWithName } from '../../molecules/user/UserIconWithName';
+import { useContext } from 'react';
+import { UserContext } from '../../../providers/UserProvider';
 
 export const UserCard = (props) => {
 	const { user } = props;
+
+	const context = useContext(UserContext);
 	return (
 		<Card>
-			<UserIconWithName name={user.name} />
+			<UserIconWithName name={context.contextName} />
 			<SDl>
 				<dt>メールアドレス</dt>
 				<dd>{user.email}</dd>

@@ -5,6 +5,8 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { RenderRouter } from './router/RenderRouter';
 import { routes } from './router/Routes';
 
+import { UserProvider } from './providers/UserProvider';
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement!);
 root.render(
@@ -74,7 +76,9 @@ root.render(
 				</ul>
 			</nav>
 
-			<RenderRouter routes={routes} />
+			<UserProvider>
+				<RenderRouter routes={routes} />
+			</UserProvider>
 		</BrowserRouter>
 	</StrictMode>
 );
