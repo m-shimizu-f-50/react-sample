@@ -8,6 +8,7 @@ import { ParamsDemo } from '../pages/ParamsDemo';
 import { AtomicDesign } from '../pages/AtomicDesign';
 import Todo from '../Todo';
 import { Page404 } from '../pages/Page404';
+import { TypeScriptSample } from '../pages/TypeScriptSample';
 
 export const routes: RouteObject[] = [
 	{
@@ -47,6 +48,11 @@ export const routes: RouteObject[] = [
 	{
 		path: '/atomic-design',
 		element: <AtomicDesign />,
+	},
+	// TypeScriptSampleのページ
+	{
+		path: '/typescript-sample',
+		element: <TypeScriptSample />,
 	},
 	// 404 Not Found
 	{

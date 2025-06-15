@@ -73,6 +73,18 @@ root.render(
 							Atomic Design
 						</Link>
 					</li>
+					<li>
+						<Link
+							to='/typescript-sample'
+							style={{
+								textDecoration: 'none',
+								color: '#6f42c1',
+								fontWeight: 'bold',
+							}}
+						>
+							TypeScript
+						</Link>
+					</li>
 				</ul>
 			</nav>
 
