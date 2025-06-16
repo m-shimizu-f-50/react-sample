@@ -8,23 +8,28 @@
 
 ```
 react-sample/
-├── public/
-│   └── vite.svg              # Viteのロゴ
+├── public/                  # 静的ファイル
 ├── src/
-│   ├── components/           # 再利用可能なコンポーネント
-│   │   ├── InputTodo.tsx     # TODO入力コンポーネント
-│   │   ├── IncompleteTodos.tsx # 未完了TODO表示コンポーネント
-│   │   └── CompleteTodos.tsx # 完了TODO表示コンポーネント
-│   ├── App.tsx              # 使用されていないメインアプリコンポーネント
-│   ├── App.css              # 使用されていないスタイル
-│   ├── Todo.tsx             # メインTODOコンポーネント（実際のエントリーポイント）
-│   ├── style.css            # メインスタイルシート
-│   ├── main.tsx             # アプリケーションのエントリーポイント
-│   └── vite-env.d.ts        # Vite環境の型定義
-├── package.json             # プロジェクト依存関係とスクリプト
-├── tsconfig.json            # TypeScript設定
-├── vite.config.ts           # Vite設定
-└── eslint.config.js         # ESLint設定
+│   ├── assets/             # 画像やその他の静的アセット
+│   ├── components/         # 再利用可能なコンポーネント
+│   ├── hooks/             # カスタムフック
+│   ├── pages/             # ページコンポーネント
+│   ├── providers/         # コンテキストプロバイダー
+│   ├── router/            # ルーティング関連
+│   ├── types/             # 型定義
+│   ├── App.tsx            # メインアプリケーションコンポーネント
+│   ├── App.css            # アプリケーションのスタイル
+│   ├── Home.tsx           # ホームページコンポーネント
+│   ├── Todo.tsx           # TODO機能のメインコンポーネント
+│   ├── main.tsx           # アプリケーションのエントリーポイント
+│   ├── style.css          # グローバルスタイル
+│   └── vite-env.d.ts      # Vite環境の型定義
+├── package.json           # プロジェクト依存関係とスクリプト
+├── tsconfig.json          # TypeScript設定
+├── tsconfig.app.json      # アプリケーション用TypeScript設定
+├── tsconfig.node.json     # Node.js用TypeScript設定
+├── vite.config.ts         # Vite設定
+└── eslint.config.js       # ESLint設定
 ```
 
 ## 🚀 技術スタック
@@ -78,7 +83,15 @@ npm run preview
 
 ## 🧩 コンポーネント詳細
 
-### Todo.tsx（メインコンポーネント）
+### App.tsx（メインアプリケーションコンポーネント）
+
+アプリケーションのルートコンポーネント。ルーティングとレイアウトを管理します。
+
+### Home.tsx（ホームページ）
+
+アプリケーションのホームページコンポーネント。
+
+### Todo.tsx（TODO機能）
 
 ```typescript
 // 主な状態管理
@@ -94,42 +107,6 @@ const [completeTodos, setCompleteTodos] = useState<string[]>([]); // 完了TODO�
 - `onClickDelete`: TODO を削除
 - `onClickComplete`: TODO を完了状態に移動
 - `onClickBack`: TODO を未完了状態に戻す
-
-### InputTodo.tsx（入力コンポーネント）
-
-```typescript
-type InputTodoProps = {
-	todoText: string; // 現在の入力値
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // 入力変更ハンドラー
-	onClick: () => void; // 追加ボタンクリックハンドラー
-	disabled: boolean; // 無効化フラグ
-};
-```
-
-**役割**: TODO 入力とその制御を担当
-
-### IncompleteTodos.tsx（未完了 TODO 表示）
-
-```typescript
-type IncompleteTodosProps = {
-	incompleteTodos: string[]; // 未完了TODO配列
-	onClickComplete: (index: number) => void; // 完了ボタンクリックハンドラー
-	onClickDelete: (index: number) => void; // 削除ボタンクリックハンドラー
-};
-```
-
-**役割**: 未完了 TODO のリスト表示と操作ボタンの提供
-
-### CompleteTodos.tsx（完了 TODO 表示）
-
-```typescript
-type CompleteTodoProps = {
-	completeTodos: string[]; // 完了TODO配列
-	onClickBack: (index: number) => void; // 戻すボタンクリックハンドラー
-};
-```
-
-**役割**: 完了 TODO のリスト表示と戻す操作の提供
 
 ## 🎨 スタイル設計
 
@@ -180,6 +157,8 @@ type CompleteTodoProps = {
 1. TODO のユニーク ID 導入（key プロップの改善）
 2. ローカルストレージでの永続化
 3. TODO 編集機能の追加
+4. エラーハンドリングの強化
+5. ローディング状態の実装
 
 ### 長期的改善
 
@@ -187,6 +166,8 @@ type CompleteTodoProps = {
 2. テストの追加（Jest, React Testing Library）
 3. モバイル対応のレスポンシブデザイン
 4. アクセシビリティの向上
+5. パフォーマンス最適化
+6. 国際化対応
 
 ## 🔍 トラブルシューティング
 
@@ -198,5 +179,5 @@ type CompleteTodoProps = {
 
 ---
 
-**作成日**: 2024 年
-**最終更新**: プロジェクト初期作成時
+**作成日**: 2024年
+**最終更新**: 2024年3月
